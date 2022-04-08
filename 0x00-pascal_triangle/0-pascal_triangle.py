@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 def pascal_triangle(n):
     if not n:
         print("list is empty")
