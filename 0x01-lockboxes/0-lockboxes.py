@@ -1,12 +1,19 @@
 #!/usr/bin/python3
+"""lockboxes: to know if box is open
+"""
 
-canUnlockAll = __import__('0-lockboxes').canUnlockAll
 
-boxes = [[1], [2], [3], [4], []]
-print(canUnlockAll(boxes))
+def canUnlockAll(boxes):
+    """lockboxes: find whether a boxes can open or not."""
+    length_box = len(boxes)
+    check_list = [0]
+    for check_value in check_list:
+        for value_into_boxes in boxes[check_value]:
+            if value_into_boxes not in check_list and\
+                    value_into_boxes < length_box:
+                check_list.append(value_into_boxes)
 
-boxes = [[1, 4, 6], [2], [0, 4, 1], [5, 6, 2], [3], [4, 1], [6]]
-print(canUnlockAll(boxes))
-
-boxes = [[1, 4], [2], [0, 4, 1], [3], [], [4, 1], [5, 6]]
-print(canUnlockAll(boxes))
+    if len(check_list) == length_box:
+        return True
+    else:
+        return False
